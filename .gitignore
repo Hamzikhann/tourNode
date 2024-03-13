@@ -6,9 +6,9 @@
 # Node artifact files
 node_modules/
 dist/
-.env
+# .env
 # Custom files
-config/config.json
+# config/config.json
 uploads/clients/
 uploads/documents/
 uploads/users/
