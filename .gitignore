@@ -8,7 +8,6 @@ node_modules/
 dist/
 .env
 # Custom files
-config/config.json
 uploads/clients/
 uploads/documents/
 uploads/users/
