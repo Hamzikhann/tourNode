@@ -15,8 +15,6 @@ exports.protect = (req, res, next) => {
 			} else {
 				Object.assign(req, {
 					userId: decoded.userId,
-					profileId: decoded.profileId,
-					clientId: decoded.clientId,
 					roleId: decoded.roleId,
 					role: decoded.role
 				});

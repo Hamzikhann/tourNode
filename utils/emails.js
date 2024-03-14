@@ -17,6 +17,7 @@ function Email() {}
 
 Email.errorEmail = async (req, error) => {
 	try {
+		return 1;
 		const data = fs.readFileSync("./templates/emailError.html", "utf8");
 		var text = data;
 		const userInfo = {

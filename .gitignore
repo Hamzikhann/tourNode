@@ -6,13 +6,14 @@
 # Node artifact files
 node_modules/
 dist/
-.env
+
+
 # Custom files
 uploads/clients/
 uploads/documents/
 uploads/users/
 uploads/instructor/
-
+.env
 # Compiled Java class files
 *.class
 
@@ -59,4 +60,3 @@ uploads/clients/
 uploads/documents/
 uploads/users/
 uploads/instructors/
-config/config.json

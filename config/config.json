@@ -1,0 +1,61 @@
+{
+	"development": {
+		"username": "root",
+		"password": "",
+		"database": "tourdb",
+		"host": "localhost",
+		"dialect": "mysql",
+		"port": "3306",
+		"pool": {
+			"max": 32,
+			"min": 0,
+			"acquire": 30000,
+			"idle": 10000
+		},
+		"dialectOptions": {
+			"dateStrings": true,
+			"typeCast": true
+		},
+		"timezone": "+05:00",
+		"logging": false
+	},
+	"test": {
+		"username": "root",
+		"password": "",
+		"database": "db_name",
+		"host": "localhost",
+		"dialect": "mysql",
+		"port": "3306",
+		"pool": {
+			"max": 32,
+			"min": 0,
+			"acquire": 30000,
+			"idle": 10000
+		},
+		"dialectOptions": {
+			"dateStrings": true,
+			"typeCast": true
+		},
+		"timezone": "+05:00",
+		"logging": false
+	},
+	"production": {
+		"username": "root",
+		"password": "",
+		"database": "db_name",
+		"host": "127.0.0.1",
+		"dialect": "mysql",
+		"pool": {
+			"max": 32,
+			"min": 0,
+			"acquire": 30000,
+			"idle": 10000
+		},
+		"dialectOptions": {
+			"dateStrings": true,
+			"typeCast": true
+		},
+		"timezone": "+05:00",
+		"logging": false
+	}
+}

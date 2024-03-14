@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
 	const table = sequelize.define(
 		"userTrip",
 		{
-			
 			isActive: {
 				type: DataTypes.STRING,
 				allowNull: false,

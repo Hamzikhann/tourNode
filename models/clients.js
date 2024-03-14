@@ -2,8 +2,12 @@
 
 module.exports = (sequelize, DataTypes) => {
 	const table = sequelize.define(
-		"userStories",
+		"clients",
 		{
+			fullName: DataTypes.STRING,
+			phoneNo: DataTypes.STRING,
+			otp: DataTypes.STRING,
+			randomNo: DataTypes.STRING,
 			isActive: {
 				type: DataTypes.STRING,
 				allowNull: false,
@@ -13,9 +17,8 @@ module.exports = (sequelize, DataTypes) => {
 		{ timestamps: true }
 	);
 	table.associate = function (models) {
-		table.belongsTo(models.users);
-		table.belongsTo(models.trip);
-		table.hasMany(models.userStoriesImages);
+		// table.hasMany(models.users);
+		// table.hasMany(models.clientStories);
 	};
 	return table;
 };

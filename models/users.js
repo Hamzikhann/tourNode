@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
 	table.associate = function (models) {
 		table.belongsTo(models.roles);
 		table.hasMany(models.bookings);
+		table.hasMany(models.userTrip);
 		table.hasMany(models.userStories);
 	};
 	return table;
