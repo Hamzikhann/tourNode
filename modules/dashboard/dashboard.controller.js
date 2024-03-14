@@ -39,11 +39,14 @@ exports.userDashboard = async (req, res) => {
 			include: [
 				{
 					model: Trip,
+					required:false,
 					where: { isActive: "Y" },
 					attributes: ["id"]
 				},
 				{
 					model: UserStories,
+					required:false,
+
 					attributes: ["id"],
 					include: [
 						{
@@ -52,9 +55,15 @@ exports.userDashboard = async (req, res) => {
 					]
 				}
 			],
-			attributes: { exclude: ["isActive", "createdAt", "updatedAt", "roleId", "otp", "randomNo"] }
+			attributes: { exclude: ["isActive", "createdAt", "updatedAt", "roleId", "otp", "randomNo"] },
+		
 		});
 
+		allClients.forEach((e) => {
+			e.tripCount = e.trips.length;
+			console.log(e.tripCount);
+		});
+console.log(allClients)
 		res.send({ message: "A Dashboard Retrival", data: { allClients, allOfferedTrips, allRegularTrips } });
 	} catch (err) {
 		emails.errorEmail(req, err);
