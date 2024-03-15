@@ -21,9 +21,8 @@ module.exports = (sequelize, DataTypes) => {
 		{ timestamps: true }
 	);
 	table.associate = function (models) {
-		table.hasMany(models.userTrip);
-		table.hasMany(models.userStories);
-
+		// table.hasMany(models.userTrip);
+		table.belongsTo(models.users);
 		table.hasMany(models.tripImages);
 		table.hasMany(models.tripCategories);
 		// table.hasMany(models.userTrip);

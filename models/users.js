@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
 			phoneNo: DataTypes.STRING,
 			otp: DataTypes.STRING,
 			randomNo: DataTypes.STRING,
+			sliderImage: DataTypes.STRING,
 			isActive: {
 				type: DataTypes.STRING,
 				allowNull: false,
@@ -19,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
 	table.associate = function (models) {
 		table.belongsTo(models.roles);
 		table.hasMany(models.bookings);
-		table.hasMany(models.userTrip);
+		table.hasMany(models.trip);
 		table.hasMany(models.userStories);
 	};
 	return table;

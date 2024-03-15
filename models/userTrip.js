@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
 		{ timestamps: true }
 	);
 	table.associate = function (models) {
-		table.belongsTo(models.users);
-		table.belongsTo(models.trip);
+		// table.belongsTo(models.users);
+		// table.belongsTo(models.trip);
 	};
 	return table;
 };

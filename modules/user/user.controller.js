@@ -77,23 +77,20 @@ exports.detail = async (req, res) => {
 			where: { id: userId },
 			include: [
 				{
-					model: UserTrip,
+					model: Trip,
 					where: { isActive: "Y", userId: userId },
 					include: [
 						{
-							model: Trip,
+							model: TripCategories,
+							required: false,
 							where: { isActive: "Y" },
 							include: [
 								{
-									model: TripCategories,
+									model: TripSubCategories,
+									required: false,
+
 									where: { isActive: "Y" },
-									include: [
-										{
-											model: TripSubCategories,
-											where: { isActive: "Y" },
-											attributes: ["id", "title"]
-										}
-									],
+
 									attributes: ["id", "title"]
 								}
 							],
@@ -104,11 +101,13 @@ exports.detail = async (req, res) => {
 				},
 				{
 					model: UserStories,
+					required: false,
+
 					where: { isActive: "Y" },
 					attributes: ["id"]
 				}
 			],
-			attributes: ["id", "fullName", "phoneNo"]
+			attributes: ["id", "fullName", "phoneNo", "sliderImage"]
 		});
 
 		res.send({ message: "User detail", data: trip });

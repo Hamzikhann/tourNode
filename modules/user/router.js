@@ -15,10 +15,6 @@ router.post("/create", (req, res) => {
 });
 
 router.post("/detail", (req, res) => {
-	if (req.role == "Client") {
-		userController.detail(req, res);
-	} else {
-		res.status(403).send({ message: "Forbidden Access" });
-	}
+	userController.detail(req, res);
 });
 module.exports = router;
