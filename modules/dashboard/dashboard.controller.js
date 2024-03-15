@@ -13,62 +13,75 @@ const UserStoriesImages = db.userStoriesImages;
 const TripImages = db.tripImages;
 
 exports.userDashboard = async (req, res) => {
-	try {
-		let allOfferedTrips = await Trip.findAndCountAll({
-			where: { isActive: "Y", tripType: "Offer" },
-			include: [
-				{
-					model: TripImages
-				}
-			],
-			attributes: { exclude: ["isActive", "createdAt", "updatedAt"] }
-		});
+  try {
+    let allOfferedTrips = await Trip.findAndCountAll({
+      where: { isActive: "Y", tripType: "Offer" },
+      include: [
+        {
+          model: TripImages,
+        },
+      ],
+      attributes: { exclude: ["isActive", "createdAt", "updatedAt"] },
+    });
 
-		let allRegularTrips = await Trip.findAndCountAll({
-			where: { isActive: "Y", tripType: "Group" },
-			include: [
-				{
-					model: TripImages
-				}
-			],
-			attributes: { exclude: ["isActive", "createdAt", "updatedAt"] }
-		});
+    let allRegularTrips = await Trip.findAndCountAll({
+      where: { isActive: "Y", tripType: "Group" },
+      include: [
+        {
+          model: TripImages,
+        },
+      ],
+      attributes: { exclude: ["isActive", "createdAt", "updatedAt"] },
+    });
 
-		let allClients = await Users.findAll({
-			where: { isActive: "Y", roleId: 2 },
-			include: [
-				{
-					model: Trip,
-					required:false,
-					where: { isActive: "Y" },
-					attributes: ["id"]
-				},
-				{
-					model: UserStories,
-					required:false,
+    let allClients = await Users.findAll({
+      where: { isActive: "Y", roleId: 2 },
+      include: [
+        {
+          model: Trip,
+          required: false,
+          where: { isActive: "Y" },
+          attributes: ["id"],
+        },
+        {
+          model: UserStories,
+          required: false,
 
-					attributes: ["id"],
-					include: [
-						{
-							model: UserStoriesImages
-						}
-					]
-				}
-			],
-			attributes: { exclude: ["isActive", "createdAt", "updatedAt", "roleId", "otp", "randomNo"] },
-		
-		});
+          attributes: ["id"],
+          include: [
+            {
+              model: UserStoriesImages,
+            },
+          ],
+        },
+      ],
+      attributes: {
+        exclude: [
+          "isActive",
+          "createdAt",
+          "updatedAt",
+          "roleId",
+          "otp",
+          "randomNo",
+        ],
+      },
+    });
 
-		allClients.forEach((e) => {
-			e.tripCount = e.trips.length;
-			console.log(e.tripCount);
-		});
-console.log(allClients)
-		res.send({ message: "A Dashboard Retrival", data: { allClients, allOfferedTrips, allRegularTrips } });
-	} catch (err) {
-		emails.errorEmail(req, err);
-		res.status(500).send({
-			message: err.message || "Some error occurred "
-		});
-	}
+    allClients.forEach((e) => {
+      e.tripCount = e.trips ? e.trips.length : 0;
+      console.log(e.tripCount);
+    });
+
+    console.log(allClients);
+
+    res.send({
+      message: "A Dashboard Retrival",
+      data: { allClients },
+    });
+  } catch (err) {
+    emails.errorEmail(req, err);
+    res.status(500).send({
+      message: err.message || "Some error occurred ",
+    });
+  }
 };
