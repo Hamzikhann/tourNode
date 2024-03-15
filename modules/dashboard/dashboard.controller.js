@@ -53,7 +53,6 @@ exports.userDashboard = async (req, res) => {
 				}
 			],
 			attributes: { exclude: ["isActive", "createdAt", "updatedAt", "roleId", "otp", "randomNo"] }
-			// group: ["id"] // Ensure grouping by the primary key of Users model
 		});
 
 		res.send({ message: "A Dashboard Retrival", data: { allClients, allOfferedTrips, allRegularTrips } });
