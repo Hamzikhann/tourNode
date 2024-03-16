@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
 	);
 	table.associate = function (models) {
 		table.belongsTo(models.trip);
-		table.hasOne(models.tripSubCategories);
+		table.hasMany(models.tripSubCategories);
 	};
 	return table;
 };
