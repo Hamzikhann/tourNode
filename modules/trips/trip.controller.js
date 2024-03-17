@@ -13,7 +13,8 @@ const TripImages = db.tripImages;
 exports.detail = (req, res) => {
 	try {
 		const joiSchema = Joi.object({
-			tripId: Joi.string().required()
+			tripId: Joi.string().required(),
+			tripType: Joi.string().optional()
 		});
 		const { error, value } = joiSchema.validate(req.body);
 		if (error) {
@@ -23,25 +24,36 @@ exports.detail = (req, res) => {
 			});
 		} else {
 			const tripId = req.body.tripId;
+			const tripType = req.body.tripType ? req.body.tripType : null;
+			let tripWhere = { id: tripId, isActive: "Y" };
 
+			if (tripType) {
+				tripWhere.tripType = tripType;
+			}
+			console.log(tripWhere);
 			Trip.findOne({
-				where: { id: tripId, isActive: "Y" },
+				where: tripWhere,
 				include: [
 					{
 						model: TripCategories,
+						required: false,
 						where: { isActive: "Y" },
 						include: [
 							{
 								model: TripSubCategories,
+								required: false,
+
 								where: { isActive: "Y" }
 							}
 						]
 					},
 					{
-						model: TripImages
+						model: TripImages,
+						required: false
 					},
 					{
-						model: Users
+						model: Users,
+						required: false
 					}
 				]
 			})

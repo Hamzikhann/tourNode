@@ -89,7 +89,6 @@ exports.detail = async (req, res) => {
 				{
 					model: UserStories,
 					required: false,
-
 					where: { isActive: "Y" },
 					attributes: ["id"]
 				}
