@@ -37,15 +37,15 @@ exports.detail = (req, res) => {
 					{
 						model: TripCategories,
 						required: false,
-						where: { isActive: "Y" },
-						include: [
-							{
-								model: TripSubCategories,
-								required: false,
+						where: { isActive: "Y" }
+						// include: [
+						// 	{
+						// 		model: TripSubCategories,
+						// 		required: false,
 
-								where: { isActive: "Y" }
-							}
-						]
+						// 		where: { isActive: "Y" }
+						// 	}
+						// ]
 					},
 					{
 						model: TripImages,

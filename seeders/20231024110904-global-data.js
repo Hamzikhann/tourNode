@@ -188,44 +188,37 @@ module.exports = {
 				{
 					title: "what's Included",
 					createdAt: date,
-					updatedAt: date,
-					tripId: 1
+					updatedAt: date
 				},
 				{
 					title: "what to expect",
 					createdAt: date,
-					updatedAt: date,
-					tripId: 1
+					updatedAt: date
 				},
 				{
 					title: "Departure and return",
 					createdAt: date,
-					updatedAt: date,
-					tripId: 1
+					updatedAt: date
 				},
 				{
 					title: "Additional Information",
 					createdAt: date,
-					updatedAt: date,
-					tripId: 1
+					updatedAt: date
 				},
 				{
 					title: "Cancelation Policy",
 					createdAt: date,
-					updatedAt: date,
-					tripId: 1
+					updatedAt: date
 				},
 				{
 					title: "Terms And Condition",
 					createdAt: date,
-					updatedAt: date,
-					tripId: 1
+					updatedAt: date
 				},
 				{
 					title: "Help",
 					createdAt: date,
-					updatedAt: date,
-					tripId: 1
+					updatedAt: date
 				}
 			],
 			{}

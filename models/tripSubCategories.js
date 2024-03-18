@@ -15,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
 	);
 	table.associate = function (models) {
 		table.belongsTo(models.tripCategories);
+		table.belongsTo(models.trip);
+		// table.belongsToMany(models.trip, { through: models.tripCategories });
 	};
 	return table;
 };

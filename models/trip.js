@@ -25,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
 		table.belongsTo(models.users);
 		table.hasMany(models.tripImages);
 		table.hasMany(models.tripCategories);
+		// table.belongsToMany(models.tripSubCategories, { through: models.tripCategories });
 	};
 	return table;
 };

@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
 		{ timestamps: true }
 	);
 	table.associate = function (models) {
-		table.belongsTo(models.trip);
 		table.hasMany(models.tripSubCategories);
 	};
 	return table;
