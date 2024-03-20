@@ -1,22 +1,18 @@
-"use strict";
-
 const express = require("express");
 const router = express.Router();
-const jwt = require("../../utils/jwt");
+const wishlistController = require("./wishlist.controller");
 
-const tripController = require("./trip.controller");
-
-router.post("/detail", (req, res) => {
+router.post("/create", (req, res) => {
 	if (req.role == "User") {
-		tripController.detail(req, res);
+		wishlistController.create(req, res);
 	} else {
 		res.status(403).send({ message: "Forbidden Access" });
 	}
 });
 
-router.post("/search", (req, res) => {
+router.post("/list", (req, res) => {
 	if (req.role == "User") {
-		tripController.search(req, res);
+		wishlistController.list(req, res);
 	} else {
 		res.status(403).send({ message: "Forbidden Access" });
 	}

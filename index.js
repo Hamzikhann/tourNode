@@ -29,7 +29,7 @@ class Server {
 	}
 
 	async appExecute() {
-		var port = 7000;
+		var port = 8000;
 		var ssl = process.env.SSL || "inactive";
 		var ssl_key_path = process.env.SSL_KEY || null;
 		var ssl_cert_path = process.env.SSL_CERT || null;

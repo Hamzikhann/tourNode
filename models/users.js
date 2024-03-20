@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
 		table.hasMany(models.bookings);
 		table.hasMany(models.trip);
 		table.hasMany(models.userStories);
+		table.hasMany(models.whishlist);
 	};
 	return table;
 };
